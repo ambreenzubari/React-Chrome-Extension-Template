@@ -31,12 +31,13 @@ module.exports = {
     new HtmlWebpackPlugin({
         title:"React Js",
         filename:'popup.html',
+        chunks:['popup']
     })
   ],
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
   output: {
-    filename: "index.js",
+    filename: '[name].js',
   },
 };
