@@ -1,0 +1,16 @@
+{
+      "manifest_version":3,
+      "name":"My Extension",
+      "description":"My React JS Boilerplate",
+      "version":"1.0.0",
+      "icons": {
+        "16": "icons/icon-16.png",
+        "32": "icons/icon-32.png",
+        "48": "icons/icon-48.png",
+        "128": "icons/icon-128.png"
+      },
+      "action":{
+        "default_text":"Click Me",
+        "default_popup":"popup.html"
+      }
+}
