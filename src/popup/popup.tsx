@@ -1,11 +1,14 @@
 import React from 'react'
+import {createRoot} from 'react-dom/client'
 
-const popup = () => {
-  return (
+const test = (
     <div>
-      Helo
+        <h1>Hello Word</h1>
     </div>
-  )
-}
+)
 
-export default popup
+
+const container = document.createElement('div');
+document.body.appendChild(container)
+const root =  createRoot(container)
+root.render(test)
