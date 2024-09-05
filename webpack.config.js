@@ -1,12 +1,14 @@
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const autoprefixer = require("autoprefixer");
+const tailwindcss = require("tailwindcss");
 module.exports = {
   mode: "development",
-  devtool:'cheap-module-source-map',
+  devtool: "cheap-module-source-map",
 
   entry: {
-    popup:path.resolve('./src/popup/popup.tsx'),
+    popup: path.resolve("./src/popup/popup.tsx"),
   },
   module: {
     rules: [
@@ -15,31 +17,43 @@ module.exports = {
         test: /\.tsx$/,
         exclude: /node_modules/,
       },
+      {
+        use: [
+          "style-loader",
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                ident: "postcss",
+                plugins: [tailwindcss, autoprefixer],
+              },
+            },
+          },
+        ],
+        test: /\.css$/i,
+      },
     ],
   },
   plugins: [
     new CopyPlugin({
       patterns: [
         {
-          from: path.resolve("assets/manifest.json"),
+          from: path.resolve("src/static"),
           to: path.resolve("dist"),
-         },
-         {
-            from: path.resolve("assets/icons"),
-            to: path.resolve("dist/icons"),
-         }
+        },
       ],
     }),
     new HtmlWebpackPlugin({
-        title:"React Js",
-        filename:'popup.html',
-        chunks:['popup']
-    })
+      title: "React Js",
+      filename: "popup.html",
+      chunks: ["popup"],
+    }),
   ],
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
   output: {
-    filename: '[name].js',
+    filename: "[name].js",
   },
 };
