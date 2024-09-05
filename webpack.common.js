@@ -5,10 +5,10 @@ const autoprefixer = require("autoprefixer");
 const tailwindcss = require("tailwindcss");
 module.exports = {
   entry: {
-    popup: path.resolve("./src/popup/popup.tsx"),
+    popup: path.resolve("./src/popup/index.tsx"),
     options: path.resolve("./src/options/options.tsx"),
     background: path.resolve("./src/background/background.ts"),
-    contentScript:path.resolve("./src/contentScript/contentScript.ts")
+    contentScript: path.resolve("./src/contentScript/contentScript.ts"),
   },
   module: {
     rules: [
@@ -16,7 +16,7 @@ module.exports = {
         use: "ts-loader",
         test: /\.tsx$/,
         exclude: /node_modules/,
-      }, 
+      },
       {
         use: [
           "style-loader",
@@ -24,7 +24,6 @@ module.exports = {
           {
             loader: "postcss-loader",
             options: {
-    
               postcssOptions: {
                 ident: "postcss",
                 plugins: [tailwindcss, autoprefixer],
@@ -36,8 +35,8 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/,
-        use:'assets/resource', 
-        type: 'asset/resource',
+        use: "assets/resource",
+        type: "asset/resource",
       },
     ],
   },
@@ -50,10 +49,7 @@ module.exports = {
         },
       ],
     }),
-    ...getHtmlPlugins([
-      "popup",
-      "options"
-    ])
+    ...getHtmlPlugins(["popup", "options"]),
   ],
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
@@ -61,7 +57,7 @@ module.exports = {
   optimization: {
     splitChunks: {
       // include all types of chunks
-      chunks: 'all',
+      chunks: "all",
     },
   },
   output: {
@@ -69,11 +65,13 @@ module.exports = {
   },
 };
 
-
-function getHtmlPlugins(chunks){
-  return chunks.map(chunk => new HtmlWebpackPlugin({
-    title: "React Extensions", 
-    filename: `${chunk}.html`,
-    chunks: [chunk],
-  }));
+function getHtmlPlugins(chunks) {
+  return chunks.map(
+    (chunk) =>
+      new HtmlWebpackPlugin({
+        title: "React Extensions",
+        filename: `${chunk}.html`,
+        chunks: [chunk],
+      })
+  );
 }

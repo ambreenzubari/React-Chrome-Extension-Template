@@ -20,7 +20,10 @@
   "background": {
     "service_worker": "background.js"
   },
-"content_scripts": [
+  "chrome_url_overrides": {
+    "newtab":"newtab.html"
+  },
+  "content_scripts": [
     {
       "matches": ["https://*.google.com/*"],
       "js": ["contentScript.js"]
