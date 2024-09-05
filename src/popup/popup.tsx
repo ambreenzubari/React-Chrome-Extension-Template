@@ -4,12 +4,8 @@ import "../assets/tailwind.css";
 const test = (
   <div>
     <h1 className="text-5xl bg-green-900">Hello Word</h1>
-      <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae commodi
-      excepturi vel officia est molestiae. Aut tempore, iusto est nisi dolorum
-      consectetur reiciendis facere, repudiandae asperiores provident, autem
-      incidunt beatae.
-    </p>
+    
+    <img src="images.jpeg" alt=""/>
   </div>
 );
 

@@ -11,7 +11,7 @@
   },
   "action": {
     "default_text": "Click Me",
-    "default_popup": "popup.html",
+    "default_popup": "popup.html"
   },
   "options_ui": {
     "page": "options.html"
