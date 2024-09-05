@@ -4,9 +4,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const autoprefixer = require("autoprefixer");
 const tailwindcss = require("tailwindcss");
 module.exports = {
-  mode: "development",
-  devtool: "cheap-module-source-map",
-
   entry: {
     popup: path.resolve("./src/popup/popup.tsx"),
     options: path.resolve("./src/options/options.tsx"),
@@ -19,7 +16,7 @@ module.exports = {
         use: "ts-loader",
         test: /\.tsx$/,
         exclude: /node_modules/,
-      },
+      }, 
       {
         use: [
           "style-loader",
@@ -27,6 +24,7 @@ module.exports = {
           {
             loader: "postcss-loader",
             options: {
+    
               postcssOptions: {
                 ident: "postcss",
                 plugins: [tailwindcss, autoprefixer],
