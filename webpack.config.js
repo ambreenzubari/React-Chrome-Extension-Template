@@ -9,6 +9,7 @@ module.exports = {
 
   entry: {
     popup: path.resolve("./src/popup/popup.tsx"),
+    options: path.resolve("./src/options/options.tsx")
   },
   module: {
     rules: [
@@ -44,11 +45,10 @@ module.exports = {
         },
       ],
     }),
-    new HtmlWebpackPlugin({
-      title: "React Js",
-      filename: "popup.html",
-      chunks: ["popup"],
-    }),
+    ...getHtmlPlugins([
+      "popup",
+      "options"
+    ])
   ],
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
@@ -57,3 +57,12 @@ module.exports = {
     filename: "[name].js",
   },
 };
+
+
+function getHtmlPlugins(chunks){
+  return chunks.map(chunk => new HtmlWebpackPlugin({
+    title: "React Extensions", 
+    filename: `${chunk}.html`,
+    chunks: [chunk],
+  }));
+}
