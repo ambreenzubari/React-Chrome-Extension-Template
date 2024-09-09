@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "My Extension",
+  "name": "TRY",
   "description": "My React JS Boilerplate",
   "version": "1.0.0",
   "icons": {
@@ -16,13 +16,16 @@
   "options_ui": {
     "page": "options.html"
   },
-  "permissions": ["tabs", "bookmarks"],
+  "permissions": [
+    "tabs",
+    "bookmarks",
+    "storage",
+    "identity"
+  ],
   "background": {
     "service_worker": "background.js"
   },
-  "chrome_url_overrides": {
-    "newtab":"newtab.html"
-  },
+
   "content_scripts": [
     {
       "matches": ["https://*.google.com/*"],
