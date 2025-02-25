@@ -2,6 +2,8 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import "../assets/tailwind.css";
 import ContentScript from "./contentScript";
+import { Provider } from "react-redux";
+import store from "../redux/store";
 function init() {
   const appContainer = document.createElement("div");
   document.body.appendChild(appContainer);
@@ -9,8 +11,12 @@ function init() {
     throw new Error("Can not find AppContainer");
   }
   const root = createRoot(appContainer);
-  console.log(appContainer);
-  root.render(<ContentScript />);
+  // console.log(appContainer);
+  root.render(
+    <Provider store={store}>
+      <ContentScript />
+    </Provider>
+  );
 }
 
 init();

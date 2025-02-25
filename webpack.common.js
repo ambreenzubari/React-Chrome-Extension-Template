@@ -3,6 +3,8 @@ const CopyPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const autoprefixer = require("autoprefixer");
 const tailwindcss = require("tailwindcss");
+const Dotenv = require('dotenv-webpack');
+
 module.exports = {
   entry: {
     popup: path.resolve("./src/popup/index.tsx"),
@@ -14,7 +16,7 @@ module.exports = {
     rules: [
       {
         use: "ts-loader",
-        test: /\.tsx$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
       },
       {
@@ -41,6 +43,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new Dotenv(), // Loads .env file contents into process.env
     new CopyPlugin({
       patterns: [
         {

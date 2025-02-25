@@ -45,10 +45,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _assets_tailwind_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/tailwind.css */ "./src/assets/tailwind.css");
+
 
 const Popup = () => {
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", { className: "text-4xl text-green-500" }, "Hello World")));
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "doc-ai-prefix" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "w-[200px] p-4 bg-blue-400 rounded-lg shadow-lg" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "text-[15px] text-white font-poppins" },
+                "Please click the ",
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, "BLA BLA"),
+                " icon to get access to the features."))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Popup);
 
